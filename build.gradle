@@ -1,0 +1,20 @@
+apply plugin: 'java-library'
+apply plugin: 'org.j2objcgradle.gradle'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+
+
+j2objcConfig {
+    //translatedPathPrefix 'com.kgalligan.basicandroid.shared', 'SH'
+    translatedPathPrefix 'com.example.testproject.model', ''
+    translatedPathPrefix 'com.example.testproject.protocol', ''
+    translatePattern {
+        include '**/protocol/**'
+        include '**/model/**'
+    }
+}
